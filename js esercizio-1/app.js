@@ -19,7 +19,7 @@ for ( let i = 0; i < mailList.length; i++) {
     console.log(i, mailList[i]);
 
     // - SE la mail è presente nella lista stampare il messaggio positivo
-    
+
     const verifyMail = (mailList[i] === userMail);
     if (verifyMail) {
         // console.log('benvenuto ' + verifyMail);
@@ -45,25 +45,27 @@ if (access === true) {
     // - SE il numero del giocatore è più alto allora ha vinto il gicatore
     let userWin = userRandom > pcRandom;
     let pcWin = userRandom < pcRandom;
+    let gameResult = 'Pareggio';
 
+    const diceDomElement = document.getElementById('game');
 
     if (userWin) {
         console.log('userRandom ha vinto');
+        gameResult = 'User ha vinto';
 
     // - ALTRIMENTI SE il numero del computer è più altro ha vinto il computer
 
     } else if (pcWin) {
         console.log('pcRandom ha vinto');
-
+        gameResult = 'User ha perso';
     // -  ALTRIMENTI il numero è uguale allora è un pareggio
 
-    } else {
-        console.log('è un pareggio')
     }
+
+    diceDomElement.innerHTML = gameResult;
 
 } else {
     alert('accesso negato');
 }
 
 console.log(access);
-
